@@ -1,7 +1,7 @@
 FROM node:latest
-COPY app/ .
-WORKDIR /app    
+WORKDIR /app
+COPY app/ .    
 ENV NODE_ENV=production
 RUN npm install --production
-EXPOSE 80
+EXPOSE 8080
 CMD [ "node", "server.js" ]
