@@ -1,5 +1,4 @@
 name: Example Workflow
-
 on:
   pull_request:
     types: [opened, synchronize]
