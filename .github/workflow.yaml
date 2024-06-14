@@ -1,0 +1,20 @@
+name: Example Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: '0 0 * * *'  # Adjust the cron expression as needed
+  workflow_dispatch:
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Run task only if not a forked PR, triggered by schedule/dispatch, and not canceled
+      if: ${{ !cancelled() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+      run: echo "This task runs unless the PR is from a forked repository or the workflow is canceled."
