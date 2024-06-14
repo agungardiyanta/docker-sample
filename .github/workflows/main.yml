@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize]
   schedule:
-    - cron: '0 0 * * *'  # Adjust the cron expression as needed
+    - cron: '*/1 * * * *'  # Run every 1 minute
   workflow_dispatch:
 
 jobs:
