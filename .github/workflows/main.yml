@@ -1,11 +1,7 @@
 name: Example Workflow
-
 on:
   pull_request:
     types: [opened, synchronize]
-  schedule:
-    - cron: '*/5 * * * *'  # Run every 5 minutes
-  workflow_dispatch:
 
 jobs:
   example-job:
