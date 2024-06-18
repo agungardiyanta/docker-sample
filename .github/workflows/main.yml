@@ -2,6 +2,8 @@ name: Example Workflow
 on:
   pull_request:
     types: [opened, synchronize]
+  workflow_dispatch:
+    
 
 jobs:
   example-job:
