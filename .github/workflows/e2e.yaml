@@ -10,8 +10,8 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v2
 
-    - name: github even name
-      run: echo "(github.event_name)"
+    - name: github event name
+      run: echo " ${{ github.event_name }} "
    
     - name: Run task only if not a forked PR, triggered by schedule/dispatch, and not canceled
       if: ${{ !cancelled() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
