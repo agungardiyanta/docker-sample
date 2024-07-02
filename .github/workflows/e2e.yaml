@@ -1,18 +1,17 @@
-name: Example Workflow
 on:
-  pull_request:
-    types: [opened, synchronize]
-  workflow_dispatch:
+  workflow_call:
     
-
 jobs:
-  example-job:
+  e2e-test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out the repository
       uses: actions/checkout@v2
 
+    - name: github even name
+      run: echo "(github.event_name)"
+   
     - name: Run task only if not a forked PR, triggered by schedule/dispatch, and not canceled
       if: ${{ !cancelled() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
       run: echo "This task runs unless the PR is from a forked repository or the workflow is canceled."
