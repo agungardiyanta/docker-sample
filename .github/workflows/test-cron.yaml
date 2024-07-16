@@ -1,0 +1,13 @@
+name: start id-cloudhost
+on:
+  schedule:
+    - cron: "0 8 * * *"
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: curl stop vm
+      uses: enflo/curl-action@master
+      with:
+        curl: ${{ secrets.CURL_STOP }}
