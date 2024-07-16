@@ -1,7 +1,7 @@
-name: start id-cloudhost
+name: stop id-cloudhost
 on:
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "35 7 * * *"
 jobs:
   curl:
     runs-on: ubuntu-latest
